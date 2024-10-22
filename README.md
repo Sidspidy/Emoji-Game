@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+## LIVE DEMO :-  <a href="https://emojigame1.netlify.app/">Emoji Game</a>
+- Live Link : https://emojigame1.netlify.app/   <br/>
+In this assignment let's build a **Emoji Game** 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Refer to image below:
 
-## Available Scripts
+refer link to understand application -- https://assets.ccbp.in/frontend/content/react-js/emoji-game-output.gif --
+<br/>
+<div style="text-align: center;">
+    <img src="https://assets.ccbp.in/frontend/content/react-js/emoji-game-output.gif" alt="emoji-game-output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
+</div>
+<br/>
 
-In the project directory, you can run:
+### Design Files
 
-### `npm start`
+- [Extra Small (Size < 576px), Small (Size >= 576px) - output](https://assets.ccbp.in/frontend/content/react-js/emoji-game-sm-output.png)
+- [Extra Small (Size < 576px), Small (Size >= 576px) - won game](https://assets.ccbp.in/frontend/content/react-js/emoji-game-won-game-sm-output.png)
+- [Extra Small (Size < 576px), Small (Size >= 576px) - lose game](https://assets.ccbp.in/frontend/content/react-js/emoji-game-lose-game-sm-output.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - output](https://assets.ccbp.in/frontend/content/react-js/emoji-game-lg-output.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - won game](https://assets.ccbp.in/frontend/content/react-js/emoji-game-won-game-lg-output.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - lose game](https://assets.ccbp.in/frontend/content/react-js/emoji-game-lose-game-lg-output.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Set Up Instructions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Download dependencies by running `npm install`
+- Start up the app using `npm start`
 
-### `npm test`
+### Project Completion Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Add Functionality
 
-### `npm run build`
+The app must have the following functionalities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The _Score_ and _Total score_ for the current game should be **0** initially.
+- When an **Emoji** is clicked
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - If the clicked emoji is not the same as any of the previously clicked emojis then the _Score_ should be increased by **1**.
+  - If all the emojis are clicked exactly once
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - The _Game status_ along with _Best score_ and _Play Again_ button should be displayed as shown in the **design file (game own)**.
+    - The **Best score** should be equal to the **Top Score**.
 
-### `npm run eject`
+  - If the clicked emoji is the same as any of the previously clicked emojis
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    - The _Game status_ along with _Current score_ and _Play Again_ button should be displayed as shown in the **design file (game lose)**.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - If the score achieved in the current game is higher than the previous scores then the **Top Score** should be updated accordingly.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- When the **Play Again** button is clicked then, we should be able to play the game again.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- The _Play Again_ button should reset the game and score but not the _Top score value_.
 
-## Learn More
+- The list of emojis is passed to the `EmojiGame` component as a prop `emojisList` in the form of an array object.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Each emoji object will have the following properties
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  | Key       | Data Type |
+  | --------- | --------- |
+  | id        | Number    |
+  | emojiName | String    |
+  | emojiUrl  | String    |
 
-### Code Splitting
+- The value of the key `id` in the emoji object should be used as a key to the `EmojiCard` component.
+- The value of the key `emojiName` in the emoji object should be used as a alt text to the `emoji` image.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Your task is to complete the implementation of
+  - `src/components/EmojiGame/index.js`
+  - `src/components/EmojiGame/index.css`
+  - `src/components/NavBar/index.js`
+  - `src/components/NavBar/index.css`
+  - `src/components/EmojiCard/index.js`
+  - `src/components/EmojiCard/index.css`
+  - `src/components/WinOrLoseCard/index.js`
+  - `src/components/WinOrLoseCard/index.css`
 
-### Analyzing the Bundle Size
+### Quick Tips
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- The cursor CSS property sets the type of mouse cursor, if any, to show when the mouse pointer is over an element. Use the CSS property cursor with a value `pointer` to indicate a link. Click <a href="https://css-tricks.com/almanac/properties/c/cursor/" target="_blank">this</a> to know more.
 
-### Making a Progressive Web App
+- An outline is a line that is drawn around an element, outside the border. The outline CSS shorthand property sets all the outline properties. Use the CSS property `outline` with value `none` to hide all the outline properties. Click <a href="https://www.w3schools.com/css/css_outline.asp" target="_blank">this</a> to know more.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Resources
 
-### Advanced Configuration
+#### Images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [https://assets.ccbp.in/frontend/react-js/game-logo-img.png](https://assets.ccbp.in/frontend/react-js/game-logo-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-stuck-out-tongue-img.png](https://assets.ccbp.in/frontend/react-js/face-with-stuck-out-tongue-img.png)
+-  [https://assets.ccbp.in/frontend/react-js/face-with-head-bandage-img.png](https://assets.ccbp.in/frontend/react-js/face-with-head-bandage-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-hugs-img.png](https://assets.ccbp.in/frontend/react-js/face-with-hugs-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-laughing-img.png](https://assets.ccbp.in/frontend/react-js/face-with-laughing-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-laughing-with-hand-infront-mouth-img.png](https://assets.ccbp.in/frontend/react-js/face-with-laughing-with-hand-infront-mouth-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-mask-img.png](https://assets.ccbp.in/frontend/react-js/face-with-mask-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-silence-img.png](https://assets.ccbp.in/frontend/react-js/face-with-silence-img.png)
+- [https://assets.ccbp.in/frontend/react-js/face-with-stuck-out-tongue-and-winking-eye-img.png](https://assets.ccbp.in/frontend/react-js/face-with-stuck-out-tongue-and-winking-eye-img.png)
+- [https://assets.ccbp.in/frontend/react-js/grinning-face-with-sweat-img.png](https://assets.ccbp.in/frontend/react-js/grinning-face-with-sweat-img.png)
+- [https://assets.ccbp.in/frontend/react-js/smiling-face-with-heart-eyes-img.png](https://assets.ccbp.in/frontend/react-js/smiling-face-with-heart-eyes-img.png)
+- [https://assets.ccbp.in/frontend/react-js/grinning-face-img.png](https://assets.ccbp.in/frontend/react-js/grinning-face-img.png)
+- [https://assets.ccbp.in/frontend/react-js/smiling-face-with-star-eyes-img.png](https://assets.ccbp.in/frontend/react-js/smiling-face-with-star-eyes-img.png)
+- [https://assets.ccbp.in/frontend/react-js/won-game-img.png](https://assets.ccbp.in/frontend/react-js/won-game-img.png)
+- [https://assets.ccbp.in/frontend/react-js/lose-game-img.png](https://assets.ccbp.in/frontend/react-js/lose-game-img.png)
 
-### Deployment
+#### Colors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<div style="background-color: #6a59ff ; width: 150px; padding: 10px; color: white">Hex: #6a59ff</div>
+<div style="background-color: #ffffff ; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
+<div style="background-color: #3d3d3d ; width: 150px; padding: 10px; color: white">Hex: #3d3d3d</div>
 
-### `npm run build` fails to minify
+#### Background Colors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div style="background-color: #9796f0 ; width: 150px; padding: 10px; color: white">Hex: #9796f0</div>
+<div style="background-color: #fbc7d4 ; width: 150px; padding: 10px; color: black">Hex: #fbc7d4</div>
+<div style="background-color: #ffffff33 ; width: 150px; padding: 10px; color: black">Hex: #ffffff33</div>
+<div style="background-color: #ffce27 ; width: 150px; padding: 10px; color: black">Hex: #ffce27</div>
+
+#### Border Colors
+
+<div style="background-color: #ffffff30 ; width: 150px; padding: 10px; color: black">Hex: #ffffff30</div>
+
+#### Font-families
+
+- Roboto
+
+###The application is completly responsive (responsive-web-design)
+
+![iphone](https://user-images.githubusercontent.com/46521639/116983020-344fcd00-ace7-11eb-9fe2-3d5b8cc070f0.PNG)
+![responsive 1200](https://user-images.githubusercontent.com/46521639/116983030-36b22700-ace7-11eb-914a-0d8edbe3d786.PNG)
+![i pad](https://user-images.githubusercontent.com/46521639/116983034-387bea80-ace7-11eb-8705-e4f66e925bc3.PNG)
+
